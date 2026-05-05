@@ -1,6 +1,6 @@
 --1
 select AirlineFullName,Country_Of_Registration from Airline
-order by Country_Of_Registration asc
+order by AirlineFullName asc
 
 --2
 select g.Gate_Code,a.AirportName from Gate g
