@@ -35,3 +35,21 @@ inner join Flights f On bk.FlightID = f.FlightID
 where type = 'Checked'
 group by FlightNumber
 
+
+
+--6 
+
+select a.AirlineFullName,count(f.FlightID)as NumberOfFlights
+from Flights f
+inner join Airline a On f.airline_id = a.AirlineId
+group by a.AirlineFullName
+order by NumberOfFlights desc
+
+
+--7
+
+select f.FlightNumber, count (fdl.delay_id) as numberOfDelayedFlights
+from Flights f
+inner join FlightDelayLog fdl On f.FlightID = fdl.flight_id
+group by f.FlightNumber
+having count (fdl.delay_id) > 1
